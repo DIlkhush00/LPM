@@ -4,8 +4,18 @@
 
 # Check if the build directory exists
 if [ -d "build" ]; then
-    echo "Build directory already exists. Please remove it before running this script."
-    exit 1
+    echo "Build directory already exists."
+
+    # remove the existing build directory
+    echo "Removing existing build directory..."
+    rm -rf build
+    echo "Existing build directory removed."
+
+    # Check if the removal was successful
+    if [ $? -ne 0 ]; then
+        echo "Failed to remove existing build directory. Please check permissions."
+        exit 1
+    fi
 fi
 
 # Create the build directory

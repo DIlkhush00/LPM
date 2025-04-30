@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include "process.h"
 
 int main() {
-    printf("Hello, World!\n");
+    list_processes();
     return 0;
 }
