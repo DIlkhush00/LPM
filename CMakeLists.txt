@@ -32,6 +32,8 @@ add_executable(
     src/main.c
     src/process.c
     src/utils.c
+    src/ui.c
+    src/sort.c
 )
 
 target_link_libraries(${CMAKE_PROJECT_NAME} ${CURSES_LIBRARIES})

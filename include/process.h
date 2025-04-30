@@ -12,6 +12,7 @@ typedef struct {
     char username[32];
 } ProcessInfo;
 
-void list_processes();
+int scan_processes(ProcessInfo *processes, int max);
+void parse_status_file(pid_t pid, ProcessInfo *proc);
 
 #endif
