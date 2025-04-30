@@ -11,6 +11,10 @@ project(lpm VERSION 1.0.0 LANGUAGES C)
 
 set(CMAKE_C_STANDARD 99)
 
+# -----------------
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIRS})
+
 #######
 ## Include Directories
 #######
@@ -26,4 +30,8 @@ include_directories(
 add_executable(
     ${CMAKE_PROJECT_NAME}
     src/main.c
+    src/process.c
+    src/utils.c
 )
+
+target_link_libraries(${CMAKE_PROJECT_NAME} ${CURSES_LIBRARIES})
