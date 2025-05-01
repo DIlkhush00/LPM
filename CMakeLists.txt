@@ -11,9 +11,8 @@ project(lpm VERSION 1.0.0 LANGUAGES C)
 
 set(CMAKE_C_STANDARD 99)
 
-# -----------------
+# Find the ncurses library
 find_package(Curses REQUIRED)
-include_directories(${CURSES_INCLUDE_DIRS})
 
 #######
 ## Include Directories
@@ -21,7 +20,20 @@ include_directories(${CURSES_INCLUDE_DIRS})
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CURSES_INCLUDE_DIRS}
 )
+
+#######
+# Testing Setup
+#######
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests")
+    message(STATUS "Enabling tests")
+    enable_testing()
+    add_subdirectory(tests)
+else()
+    message(WARNING "Tests directory not found - skipping tests")
+endif()
+
 
 # -----------------
 # Add the executable
