@@ -19,7 +19,9 @@ A lightweight `top`-like process monitor written in C, featuring real-time proce
  
 2. Run the build script
 	`./build.sh`
-> You may need to give permission to run the script: `chmod +x build.sh`
+> **Note:** If you get a "Permission denied" error, make the script executable first:
+> ```bash
+> chmod +x build.sh
 <br>
   
 3. Run the application.
